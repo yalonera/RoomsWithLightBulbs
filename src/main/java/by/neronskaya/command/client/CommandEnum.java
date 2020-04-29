@@ -22,7 +22,7 @@ public enum CommandEnum {
     OPENROOM
             {
                 {
-                    this.command = new LogoutCommand();
+                    this.command = new OpenRoomCommand();
                 }
             };
 
