@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>View all rooms</h1>
-<form name="listRoom" method="post" action="controller">
+<form name="roomList" method="post" action="controller">
     <input type="hidden" name="command" value="listRoom"/>
     <table border="1" cellpadding="5" cellspacing="1">
         <tr>
@@ -29,6 +29,5 @@
         </c:forEach>
     </table>
 </form>
-
 </body>
 </html>

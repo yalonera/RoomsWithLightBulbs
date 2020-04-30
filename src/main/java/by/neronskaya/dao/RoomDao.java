@@ -12,9 +12,9 @@ public class RoomDao {
 
 
     public List<Room> getRoomList() throws SQLException, ClassNotFoundException {
+        MySQLConnUtils.getMySQLConnection();
         List<Room> roomList = new ArrayList<>();
         String sql = "select * from roomsdb.rooms;";
-        MySQLConnUtils.getMySQLConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
@@ -33,8 +33,8 @@ public class RoomDao {
     }
 
     public void addRoom(Room room) throws SQLException, ClassNotFoundException {
-        String sql = "insert into roomsdb.rooms(idRoom,roomName,country,countryCode) values (?,?,?,?);";
         MySQLConnUtils.getMySQLConnection();
+        String sql = "insert into roomsdb.rooms(idRoom,roomName,country,countryCode) values (?,?,?,?);";
         PreparedStatement statement = connection.prepareStatement(sql);
         statement.setInt(1, room.getIdRoom());
         statement.setString(2, room.getRoomName());

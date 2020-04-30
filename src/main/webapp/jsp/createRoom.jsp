@@ -4,6 +4,7 @@
     <title>Create</title>
 </head>
 <body>
+<h1>Create new room</h1>
 <form name="addRoom" method="post" action="controller">
     <input type="hidden" name="command" value="add"/>
     Room number:<br/>
