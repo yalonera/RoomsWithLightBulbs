@@ -18,10 +18,10 @@
             <th>Open</th>
         </tr>
 
-        <c:forEach items="${roomList}" var="room">
+        <c:forEach items="${roomList.rooms}" var="room">
             <tr>
-                <td>${room.idRoom}</td>
-                <td>${room.roomName}</td>
+                <td>${room.id}</td>
+                <td>${room.name}</td>
                 <td>${room.country}</td>
                 <td>${room.countryCode}</td>
                 <td><input type="submit" name="openRoom" value="Open room"></td>

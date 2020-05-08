@@ -1,8 +1,8 @@
 package by.neronskaya.bean;
 
 public class Room {
-    private int idRoom;
-    private String roomName;
+    private int id;
+    private String name;
     private String country;
     private String countryCode;
 
@@ -10,27 +10,27 @@ public class Room {
 
     }
 
-    public Room(int idRoom, String roomName, String country, String countryCode) {
-        this.idRoom = idRoom;
-        this.roomName = roomName;
+    public Room(int id, String name, String country, String countryCode) {
+        this.id = id;
+        this.name = name;
         this.country = country;
         this.countryCode = countryCode;
     }
 
-    public int getIdRoom() {
-        return idRoom;
+    public int getId() {
+        return id;
     }
 
-    public void setIdRoom(int idRoom) {
-        this.idRoom = idRoom;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getRoomName() {
-        return roomName;
+    public String getName() {
+        return name;
     }
 
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCountry() {

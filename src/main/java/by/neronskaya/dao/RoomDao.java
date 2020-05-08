@@ -18,12 +18,12 @@ public class RoomDao {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
         while (resultSet.next()) {
-            int idRoom = resultSet.getInt("idRoom");
-            String roomName = resultSet.getString("roomName");
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
             String country = resultSet.getString("country");
             String countryCode = resultSet.getString("countryCode");
 
-            Room room = new Room(idRoom, roomName, country, countryCode);
+            Room room = new Room(id, name, country, countryCode);
             roomList.add(room);
         }
         resultSet.close();
@@ -34,10 +34,10 @@ public class RoomDao {
 
     public void addRoom(Room room) throws SQLException, ClassNotFoundException {
         MySQLConnUtils.getMySQLConnection();
-        String sql = "insert into roomsdb.rooms(idRoom,roomName,country,countryCode) values (?,?,?,?);";
+        String sql = "insert into roomsdb.rooms(id,name,country,countryCode) values (?,?,?,?);";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, room.getIdRoom());
-        statement.setString(2, room.getRoomName());
+        statement.setInt(1, room.getId());
+        statement.setString(2, room.getName());
         statement.setString(3, room.getCountry());
         statement.setString(4, room.getCountryCode());
         statement.executeUpdate();

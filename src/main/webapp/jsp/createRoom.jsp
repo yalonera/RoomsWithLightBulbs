@@ -8,9 +8,9 @@
 <form name="addRoom" method="post" action="controller">
     <input type="hidden" name="command" value="add"/>
     Room number:<br/>
-    <input type="text" name="idRoom" value=""/>
+    <input type="text" name="id" value=""/>
     <br/>Room name:<br/>
-    <input type="text" name="roomName" value=""/>
+    <input type="text" name="name" value=""/>
     <br/>Country list:<br/>
     <input type="text" name="country" value=""/>
     <br/>Country code:<br/>
