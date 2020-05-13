@@ -2,14 +2,15 @@ package by.neronskaya.dao;
 
 import by.neronskaya.bean.Room;
 import by.neronskaya.resource.MySQLConnUtils;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDao {
+    final static Logger logger = Logger.getLogger(RoomDao.class);
     Connection connection;
-
 
     public List<Room> getRoomList() throws SQLException, ClassNotFoundException {
         MySQLConnUtils.getMySQLConnection();
@@ -29,6 +30,7 @@ public class RoomDao {
         resultSet.close();
         statement.close();
         MySQLConnUtils.disconnect();
+        logger.info("displays a list of rooms");
         return roomList;
     }
 
@@ -43,5 +45,6 @@ public class RoomDao {
         statement.executeUpdate();
         statement.close();
         MySQLConnUtils.disconnect();
+        logger.info("adding new room");
     }
 }

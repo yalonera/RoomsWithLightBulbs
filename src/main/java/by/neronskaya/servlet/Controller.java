@@ -5,6 +5,7 @@ import by.neronskaya.command.ActionCommand;
 import by.neronskaya.command.factory.ActionFactory;
 import by.neronskaya.resource.ConfigurationManager;
 import by.neronskaya.resource.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import java.io.IOException;
 
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
+    final static Logger logger = Logger.getLogger(Controller.class);
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
