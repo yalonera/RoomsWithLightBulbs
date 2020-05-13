@@ -3,15 +3,15 @@ package by.neronskaya.command;
 import by.neronskaya.bean.Room;
 import by.neronskaya.command.logic.ListRoomLogic;
 import by.neronskaya.resource.ConfigurationManager;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.util.List;
-
+@Log4j
 public class ListRoomCommand implements ActionCommand {
-    final static Logger logger = Logger.getLogger(ListRoomCommand.class);
+
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -28,7 +28,7 @@ public class ListRoomCommand implements ActionCommand {
         if (request.getParameter("openRoom") != null) {
             page = ConfigurationManager.getProperty("path.page.open");
         }
-        logger.info("show list");
+        log.info("show list");
         return page;
     }
 }

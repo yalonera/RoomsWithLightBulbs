@@ -4,12 +4,13 @@ import by.neronskaya.command.ActionCommand;
 import by.neronskaya.command.EmptyCommand;
 import by.neronskaya.command.client.CommandEnum;
 import by.neronskaya.resource.MessageManager;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Log4j
 public class ActionFactory {
-    final static Logger logger = Logger.getLogger(ActionFactory.class);
+
 
     public ActionCommand defineCommand(HttpServletRequest request) {
         ActionCommand current = new EmptyCommand();
@@ -17,7 +18,7 @@ public class ActionFactory {
         String action = request.getParameter("command");
         if (action == null || action.isEmpty()) {
             // если команда не задана в текущем запросе
-            logger.info("define command");
+            log.info("define command");
             return current;
         }
         // получение объекта, соответствующего команде
@@ -27,7 +28,7 @@ public class ActionFactory {
         } catch (IllegalArgumentException e) {
             request.setAttribute("wrongAction", action + MessageManager.getProperty("message.wrongaction"));
         }
-        logger.info("define command");
+        log.info("define command");
         return current;
     }
 }

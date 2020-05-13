@@ -5,7 +5,7 @@ import by.neronskaya.command.ActionCommand;
 import by.neronskaya.command.factory.ActionFactory;
 import by.neronskaya.resource.ConfigurationManager;
 import by.neronskaya.resource.MessageManager;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+@Log4j
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
-    final static Logger logger = Logger.getLogger(Controller.class);
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -40,5 +40,6 @@ public class Controller extends HttpServlet {
             request.getSession().setAttribute("nullPage", MessageManager.getProperty("message.nullpage"));
             response.sendRedirect(request.getContextPath() + page);
         }
+        log.info("process request");
     }
 }

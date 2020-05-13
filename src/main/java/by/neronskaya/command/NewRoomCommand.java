@@ -3,12 +3,13 @@ package by.neronskaya.command;
 import by.neronskaya.bean.Room;
 import by.neronskaya.command.logic.NewRoomLogic;
 import by.neronskaya.resource.ConfigurationManager;
-import org.apache.log4j.Logger;
+import lombok.extern.log4j.Log4j;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Log4j
 public class NewRoomCommand implements ActionCommand {
-    final static Logger logger = Logger.getLogger(NewRoomCommand.class);
+
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -23,7 +24,7 @@ public class NewRoomCommand implements ActionCommand {
             NewRoomLogic.addRoom(room);
             page = ConfigurationManager.getProperty("path.page.list");
         }
-        logger.info("adding new room");
+        log.info("adding new room");
 
         return page;
 
